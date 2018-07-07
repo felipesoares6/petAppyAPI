@@ -1,8 +1,8 @@
 class Resolvers::CreateUser < GraphQL::Function
   AuthProviderInput = GraphQL::InputObjectType.define do
-    name 'AuthProviderSignupData'
+    name 'AuthProviderSignUpData'
 
-    argument :email, Types::AuthProviderEmailInput
+    argument :account, Types::AuthProviderInput
   end
 
   argument :name, !types.String
@@ -21,8 +21,8 @@ class Resolvers::CreateUser < GraphQL::Function
     {
       name: args.name,
       phone: args.phone,
-      email: args[:authProvider][:email][:email],
-      password: args[:authProvider][:email][:password]
+      email: args[:authProvider][:account][:email],
+      password: args[:authProvider][:account][:password]
     }
   end
 end

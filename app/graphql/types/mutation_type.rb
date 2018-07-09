@@ -3,4 +3,5 @@ class Types::MutationType < Types::BaseObject
 
   field :createUser, function: Resolvers::CreateUser.new
   field :signIn, function: Resolvers::SignIn.new
+  field :createAnnouncement, function: Resolvers::CreateAnnouncement.new
 end
